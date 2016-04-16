@@ -3,4 +3,49 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+
+    <string name="motto1">CHEESE DEVELOPMENT</string>
+    <string name="motto2">GROWTH CHEESE</string>
+    <string name="motto3">CHEESE PERSPECTIVE</string>
+    <string name="motto4">CHEESE GENERATOR</string>
+    <string name="news_title">NEWS</string>
+    <string name="news_title_sub">お知らせ・更新情報</string>
+    <string name="news_date1">2015.07.12</string>
+    <string name="news_content1">初日開講しました！</string>
+    <string name="news_date2">2015.06.12</string>
+    <string name="news_content2">初めてのチーズハッカソンを開催しました！</string>
+    <string name="news_date3">2015.04.11</string>
+    <string name="news_content3">トーキョーチーズFeを開催いたしました！</string>
+    <string name="to_news_list">ニュース一覧を見る</string>
+    <string name="feature_title">FEATURE</string>
+    <string name="feature_title_sub">特徴</string>
+    <string name="course_title">COURSE</string>
+    <string name="course_title_sub">コース紹介</string>
+    <string name="lab_course_title">LABコース</string>
+    <string name="lab_course_description">週末集中型の初心者対象のチーズ職人養成講座です。</string>
+    <string name="academy_course_title">ACADEMYコース</string>
+    <string name="academy_course_description">週末集中型の初心者対象のチーズ職人養成講座です。</string>
+    <string name="gellery_title">GALLERY</string>
+    <string name="gellery_title_sub">ギャラリー</string>
+    <string name="entry_title">ENTRY</string>
+    <string name="entry_title_sub">説明会に申し込む</string>
+    <string name="name">氏名</string>
+    <string name="name_edit"></string>
+    <string name="ruby">フリガナ</string>
+    <string name="ruby_edit"></string>
+    <string name="email">メールアドレス</string>
+    <string name="email_edit"></string>
+    <string name="date">説明会の希望日時</string>
+    <string-array name="date_spinner">
+        <item>2016/04/01</item>
+        <item>2016/04/08</item>
+    </string-array>
+    <string name="motivation">志望動機</string>
+    <string name="motivation_radio1">起業をしたい</string>
+    <string name="motivation_radio2">チーズ系企業に就職したい</string>
+    <string name="motivation_radio3">チーズと関わる仕事なので、知識をつけたい</string>
+    <string name="motivation_radio4">教養として身につけたい</string>
+    <string name="information_title">INFORMATION</string>
+    <string name="information_title_sub">基本情報</string>
+    <string name="caution">※実際にはチーズアカデミーという学校は存在しません。\nくれぐれも間違ってデジタルハリウッドにお問い合わせすることのないようにご注意ください。</string>
 </resources>
