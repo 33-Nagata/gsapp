@@ -3,7 +3,11 @@ package com.gashfara.nagata.gsapp;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.support.v7.widget.AppCompatTextView;
 import android.text.Spannable;
 import android.text.method.LinkMovementMethod;
 import android.util.Log;
@@ -12,6 +16,8 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.volley.toolbox.ImageLoader;
@@ -41,6 +47,7 @@ public class MessageRecordsAdapter extends ArrayAdapter<MessageRecord> {
         //レイアウトにある画像と文字のViewを所得します。
         NetworkImageView imageView = (NetworkImageView) convertView.findViewById(R.id.image1);
         TextView textView = (TextView) convertView.findViewById(R.id.text1);
+        Button button = (Button) convertView.findViewById(R.id.button1);
 
         //webリンクを制御するプログラムはここから
         // TextView に LinkMovementMethod を登録します
@@ -82,6 +89,41 @@ public class MessageRecordsAdapter extends ArrayAdapter<MessageRecord> {
             }
         });
         //webリンクを制御するプログラムはここまで
+
+        button.setOnTouchListener(new ViewGroup.OnTouchListener() {
+            @Override
+            public boolean onTouch(final View view, MotionEvent event) {
+                if (event.getAction() != MotionEvent.ACTION_UP) {
+                    return true;
+                }
+
+                Button button = (Button) view;
+                Bitmap image = null;
+                String comment = null;
+
+                ViewGroup vg1 = (ViewGroup) button.getParent();
+                for (int i = 0; i < vg1.getChildCount(); i++) {
+                    View childView = vg1.getChildAt(i);
+                    // Compare ClassName to avoid (button instanceof TextView == true)
+                    if (childView.getClass() == AppCompatTextView.class) {
+                        comment = ((TextView) childView).getText().toString();
+                    }
+                }
+                ViewGroup vg2 = (ViewGroup) vg1.getParent();
+                for (int i = 0; i < vg2.getChildCount(); i++) {
+                    View childView = vg2.getChildAt(i);
+                    if (childView instanceof ImageView) {
+                        image = ((BitmapDrawable) ((ImageView) childView).getDrawable()).getBitmap();
+                    }
+                }
+                Intent intent = new Intent(view.getContext(), ButtonActivity.class);
+                intent.putExtra("image", image);
+                intent.putExtra("comment", comment);
+                view.getContext().startActivity(intent);
+
+                return true;
+            }
+        });
 
         //表示するセルの位置からデータをMessageRecordのデータを取得します。
         MessageRecord imageRecord = getItem(position);

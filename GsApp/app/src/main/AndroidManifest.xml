@@ -23,6 +23,10 @@
             android:name=".WebActivity"
             android:label="@string/title_activity_web" >
         </activity>
+        <activity
+            android:name=".ButtonActivity"
+            android:label="@string/title_activity_button" >
+        </activity>
     </application>
 
 </manifest>
