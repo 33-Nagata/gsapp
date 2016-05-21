@@ -151,6 +151,15 @@ public class MainActivity extends ActionBarActivity {
             finish();
             return true;
         }
+        //投稿処理
+        if (id == R.id.post) {
+            //投稿画面に遷移
+            // Intent のインスタンスを取得する。getApplicationContext()でViewの自分のアクティビティーのコンテキストを取得。遷移先のアクティビティーを.classで指定
+            Intent intent = new Intent(getApplicationContext(), PostActivity.class);
+            // 遷移先の画面を呼び出す
+            startActivity(intent);
+            return true;
+        }
 
         return super.onOptionsItemSelected(item);
     }
