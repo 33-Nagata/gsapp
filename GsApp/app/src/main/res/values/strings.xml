@@ -17,4 +17,6 @@
     <string name="attach_camera_button">CameraAttach</string>
     <string name="post_button">Post</string>
     <string name="no_data_message">No Data</string>
+    <string name="good">いいね</string>
+    <string name="good_done">いいねしました</string>
 </resources>
