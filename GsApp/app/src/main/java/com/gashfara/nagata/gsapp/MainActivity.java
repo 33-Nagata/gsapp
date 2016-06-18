@@ -11,6 +11,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
 
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 import com.kii.cloud.storage.Kii;
 import com.kii.cloud.storage.KiiObject;
 import com.kii.cloud.storage.KiiUser;
@@ -103,6 +105,10 @@ public class MainActivity extends ActionBarActivity {
         super.onStart();
         //一覧のデータを作成して表示します。
         fetch();
+        //GAのスクリーン名はアクティビティーの名前を送信します。
+        Tracker t = ((VolleyApplication)getApplication()).getTracker(VolleyApplication.TrackerName.APP_TRACKER);
+        t.setScreenName(this.getClass().getSimpleName());
+        t.send(new HitBuilders.AppViewBuilder().build());
     }
     //デフォルトで作成されたメニューの関数です。未使用。
     @Override

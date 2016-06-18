@@ -9,6 +9,9 @@ import android.view.MenuItem;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
+
 
 public class WebActivity extends ActionBarActivity {
 
@@ -32,6 +35,13 @@ public class WebActivity extends ActionBarActivity {
         webView.setWebViewClient(new WebViewClient());
         //URLを表示します。
         webView.loadUrl(url);
+    }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Tracker t = ((VolleyApplication)getApplication()).getTracker(VolleyApplication.TrackerName.APP_TRACKER);
+        t.setScreenName(this.getClass().getSimpleName());
+        t.send(new HitBuilders.AppViewBuilder().build());
     }
     //デフォルトで作成されたメニューの関数です。未使用。
     @Override
